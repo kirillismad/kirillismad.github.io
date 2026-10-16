@@ -1,0 +1,20 @@
+version: '3'
+
+vars:
+  ORIGIN: images/origin
+  OUT: images/webp
+  SMALL_SIZE: 800
+  BIG_SIZE: 1600
+  SMALL_QUALITY: 75
+  BIG_QUALITY: 80
+
+tasks:
+  webp:
+    desc: Конвертировать images/origin в images/webp/small (карточка) и images/webp/big (увеличение)
+    preconditions:
+      - sh: command -v cwebp
+        msg: cwebp не найден, установите его командой brew install webp
+      - sh: command -v ffmpeg
+        msg: ffmpeg не найден, установите его командой brew install ffmpeg
+    cmds:
+      - bash scripts/convert-webp.sh {{.ORIGIN}} {{.OUT}} {{.SMALL_SIZE}} {{.BIG_SIZE}} {{.SMALL_QUALITY}} {{.BIG_QUALITY}}
