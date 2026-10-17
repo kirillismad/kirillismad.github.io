@@ -109,9 +109,60 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: clamp(2rem, 5vw, 3.5rem) clamp(1.25rem, 3vw, 2.5rem);
+    counter-reset: plant;
   }
 
-  figure { margin: 0; }
+  .grid > li { counter-increment: plant; }
+
+  figcaption::before {
+    content: counter(plant) ".";
+    margin-right: 0.3em;
+    font-size: 1.25rem;
+    font-style: italic;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  figure { margin: 0; position: relative; }
+
+  /* Статус: <li class="is-reserved"> или <li class="is-taken"> + <p class="status"> первым в <figure> */
+  .status {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    z-index: 1;
+    margin: 0;
+    padding: 0.3rem 0.65rem;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.68rem;
+    line-height: 1.4;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    pointer-events: none;
+  }
+
+  .is-reserved .status {
+    background: var(--paper);
+    color: var(--forest);
+    border: 1px solid var(--forest);
+  }
+
+  .is-reserved .photo { filter: saturate(0.5); }
+
+  .is-taken .status {
+    background: var(--sage);
+    color: var(--paper);
+    border: 1px solid var(--sage);
+  }
+
+  .is-taken .photo { filter: grayscale(1); opacity: 0.45; }
+
+  .is-taken figcaption::before,
+  .is-taken .name { color: var(--sage); }
+
+  .is-taken .name { text-decoration: line-through; text-decoration-thickness: 1px; }
+
+  .is-taken .note { opacity: 0.5; }
 
   .zoom {
     display: block;
@@ -173,6 +224,7 @@
   figcaption { padding-top: 0.9rem; }
 
   .name {
+    display: inline;
     margin: 0;
     font-size: 1.25rem;
     font-style: italic;
@@ -221,8 +273,9 @@
     .rule { margin-bottom: 1.25rem; }
 
     .grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 0.75rem; }
-    .name { font-size: 1.05rem; }
+    figcaption::before, .name { font-size: 1.05rem; }
     .note { font-size: 0.875rem; }
+    .status { top: 0.5rem; left: 0.5rem; padding: 0.25rem 0.5rem; font-size: 0.6rem; letter-spacing: 0.12em; }
     figcaption { padding-top: 0.6rem; }
 
     footer { margin-top: 2.5rem; }
@@ -253,34 +306,35 @@
   <main>
     <ul class="grid">
 
-      <!-- Каждый <li> — одно растение. Номер закреплён за растением: при удалении не меняйте остальные. Название и описание необязательны. -->
+      <!-- Каждый <li> — одно растение, номер проставляется автоматически по порядку. Название и описание необязательны. -->
 
       <li>
         <figure>
-          <button type="button" class="zoom" aria-label="Увеличить фото № 01"><img class="photo" src="images/webp/small/IMG_4950.webp" data-full="images/webp/big/IMG_4950.webp" width="600" height="800" alt="Комнатное растение в горшке" decoding="async"></button>
+          <button type="button" class="zoom" aria-label="Увеличить фото 1"><img class="photo" src="images/webp/small/IMG_4950.webp" data-full="images/webp/big/IMG_4950.webp" width="600" height="800" alt="Комнатное растение в горшке" decoding="async"></button>
           <figcaption>
-            <p class="name">№ 01 Название растения</p>
+            <p class="name">Название растения</p>
             <p class="note">Краткое описание: свет, размер, особенности.</p>
           </figcaption>
         </figure>
       </li>
 
-      <li>
+      <li class="is-reserved">
         <figure>
-          <button type="button" class="zoom" aria-label="Увеличить фото № 02"><img class="photo" src="images/webp/small/IMG_4951.webp" data-full="images/webp/big/IMG_4951.webp" width="600" height="800" alt="Комнатное растение в горшке" decoding="async"></button>
+          <p class="status">Забронировано</p>
+          <button type="button" class="zoom" aria-label="Увеличить фото 2"><img class="photo" src="images/webp/small/IMG_4951.webp" data-full="images/webp/big/IMG_4951.webp" width="600" height="800" alt="Комнатное растение в горшке" decoding="async"></button>
           <figcaption>
-            <p class="name">№ 02 Название растения</p>
+            <p class="name">Название растения</p>
             <p class="note">Краткое описание: свет, размер, особенности.</p>
           </figcaption>
         </figure>
       </li>
 
-      <!-- ЗАГЛУШКА -->
-      <li>
+      <li class="is-taken">
         <figure>
-          <div class="photo placeholder" role="img" aria-label="Место для фото растения">Фото</div>
+          <p class="status">Забрали</p>
+          <button type="button" class="zoom" aria-label="Увеличить фото 3"><img class="photo" src="images/webp/small/image.png" data-full="images/webp/big/image.png" width="700" height="678" alt="Комнатное растение в горшке" decoding="async"></button>
           <figcaption>
-            <p class="name">№ 03 Название растения</p>
+            <p class="name">Название растения</p>
             <p class="note">Краткое описание.</p>
           </figcaption>
         </figure>
@@ -291,7 +345,7 @@
         <figure>
           <div class="photo placeholder" role="img" aria-label="Место для фото растения">Фото</div>
           <figcaption>
-            <p class="name">№ 04 Название растения</p>
+            <p class="name">Название растения</p>
           </figcaption>
         </figure>
       </li>
@@ -301,7 +355,7 @@
         <figure>
           <div class="photo placeholder" role="img" aria-label="Место для фото растения">Фото</div>
           <figcaption>
-            <p class="name">№ 05 Название растения</p>
+            <p class="name">Название растения</p>
             <p class="note">Краткое описание.</p>
           </figcaption>
         </figure>
@@ -311,9 +365,7 @@
       <li>
         <figure>
           <div class="photo placeholder" role="img" aria-label="Место для фото растения">Фото</div>
-          <figcaption>
-            <p class="name">№ 06</p>
-          </figcaption>
+          <figcaption></figcaption>
         </figure>
       </li>
 
