@@ -1,403 +1,546 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#f6f1e7">
-<meta name="color-scheme" content="light">
-<meta name="format-detection" content="telephone=no">
-<title>Комнатные растения ищут новый дом</title>
-<meta name="description" content="Я переезжаю и отдаю свои комнатные растения в хорошие руки.">
-<style>
-  :root {
-    --paper: #f6f1e7;
-    --forest: #1f3a2b;
-    --sage: #8a9e86;
-    --sage-light: #dfe5d6;
-    --rule: #cfd5c4;
-  }
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#f6f1e7">
+    <meta name="color-scheme" content="light">
+    <meta name="format-detection" content="telephone=no">
+    <title>Комнатные растения ищут новый дом</title>
+    <meta name="description" content="Я переезжаю и отдаю свои комнатные растения в хорошие руки.">
+    <style>
+        :root {
+            --paper: #f6f1e7;
+            --forest: #1f3a2b;
+            --sage: #8a9e86;
+            --sage-light: #dfe5d6;
+            --rule: #cfd5c4;
+        }
 
-  * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+        }
 
-  html {
-    -webkit-text-size-adjust: 100%;
-    text-size-adjust: 100%;
-    -webkit-tap-highlight-color: transparent;
-  }
+        html {
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+            -webkit-tap-highlight-color: transparent;
+        }
 
-  body {
-    margin: 0;
-    overflow-wrap: break-word;
-    background: var(--paper);
-    color: var(--forest);
-    font-family: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
-    font-size: 1.0625rem;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-  }
+        body {
+            margin: 0;
+            overflow-wrap: break-word;
+            background: var(--paper);
+            color: var(--forest);
+            font-family: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
+            font-size: 1.0625rem;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
 
-  .page {
-    max-width: 68rem;
-    margin: 0 auto;
-    padding: clamp(1rem, 6vw, 6rem) clamp(1.25rem, 5vw, 3rem);
-    padding-left: max(clamp(1rem, 5vw, 3rem), env(safe-area-inset-left));
-    padding-right: max(clamp(1rem, 5vw, 3rem), env(safe-area-inset-right));
-    padding-bottom: max(clamp(2rem, 6vw, 6rem), env(safe-area-inset-bottom));
-  }
+        .page {
+            max-width: 68rem;
+            margin: 0 auto;
+            padding: clamp(1rem, 6vw, 6rem) clamp(1.25rem, 5vw, 3rem);
+            padding-left: max(clamp(1rem, 5vw, 3rem), env(safe-area-inset-left));
+            padding-right: max(clamp(1rem, 5vw, 3rem), env(safe-area-inset-right));
+            padding-bottom: max(clamp(2rem, 6vw, 6rem), env(safe-area-inset-bottom));
+        }
 
-  .contact {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 1.75rem;
-    margin: 0 0 clamp(2.5rem, 6vw, 4.5rem);
-    padding: 0;
-    list-style: none;
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-  }
+        .contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.75rem;
+            margin: 0 0 clamp(2.5rem, 6vw, 4.5rem);
+            padding: 0;
+            list-style: none;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
 
-  .contact a {
-    display: inline-block;
-    min-height: 44px;
-    line-height: 44px;
-    color: var(--forest);
-    text-decoration: none;
-    border-bottom: 1px solid var(--sage);
-  }
+        .contact a {
+            display: inline-block;
+            min-height: 44px;
+            line-height: 44px;
+            color: var(--forest);
+            text-decoration: none;
+            border-bottom: 1px solid var(--sage);
+        }
 
-  .contact a:hover,
-  .contact a:focus-visible { color: var(--sage); }
+        .contact a:hover,
+        .contact a:focus-visible {
+            color: var(--sage);
+        }
 
-  header {
-    max-width: 40rem;
-    margin-bottom: clamp(1.75rem, 4vw, 2.5rem);
-  }
+        header {
+            max-width: 40rem;
+            margin-bottom: clamp(1.75rem, 4vw, 2.5rem);
+        }
 
-  .eyebrow {
-    margin: 0 0 1rem;
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--sage);
-  }
+        .eyebrow {
+            margin: 0 0 1rem;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--sage);
+        }
 
-  h1 {
-    margin: 0 0 1.75rem;
-    font-weight: 400;
-    font-size: clamp(2.5rem, 8vw, 5rem);
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-  }
+        h1 {
+            margin: 0 0 1.75rem;
+            font-weight: 400;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+        }
 
-  h1 em { font-style: italic; color: var(--sage); }
+        h1 em {
+            font-style: italic;
+            color: var(--sage);
+        }
 
-  header p { margin: 0; max-width: 34rem; }
+        header p {
+            margin: 0;
+            max-width: 34rem;
+        }
 
-  .rule {
-    border: 0;
-    border-top: 1px solid var(--rule);
-    margin: 0 0 clamp(2rem, 5vw, 3.5rem);
-  }
+        .rule {
+            border: 0;
+            border-top: 1px solid var(--rule);
+            margin: 0 0 clamp(2rem, 5vw, 3.5rem);
+        }
 
-  .grid {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: clamp(2rem, 5vw, 3.5rem) clamp(1.25rem, 3vw, 2.5rem);
-    counter-reset: plant;
-  }
+        .grid {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: clamp(2rem, 5vw, 3.5rem) clamp(1.25rem, 3vw, 2.5rem);
+            counter-reset: plant;
+        }
 
-  .grid > li { counter-increment: plant; }
+        .grid>li {
+            counter-increment: plant;
+        }
 
-  figcaption::before {
-    content: counter(plant) ".";
-    margin-right: 0.3em;
-    font-size: 1.25rem;
-    font-style: italic;
-    font-weight: 700;
-    line-height: 1.3;
-  }
+        figcaption::before {
+            content: counter(plant) ".";
+            margin-right: 0.3em;
+            font-size: 1.25rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
 
-  figure { margin: 0; position: relative; }
+        figure {
+            margin: 0;
+            position: relative;
+        }
 
-  /* Статус: <li class="is-reserved"> или <li class="is-taken"> + <p class="status"> первым в <figure> */
-  .status {
-    position: absolute;
-    top: 0.75rem;
-    left: 0.75rem;
-    z-index: 1;
-    margin: 0;
-    padding: 0.3rem 0.65rem;
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    font-size: 0.68rem;
-    line-height: 1.4;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    pointer-events: none;
-  }
+        /* Статус: <li class="is-reserved"> или <li class="is-taken"> + <p class="status"> первым в <figure> */
+        .status {
+            position: absolute;
+            top: 0.75rem;
+            left: 0.75rem;
+            z-index: 1;
+            margin: 0;
+            padding: 0.3rem 0.65rem;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            font-size: 0.68rem;
+            line-height: 1.4;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            pointer-events: none;
+        }
 
-  .is-reserved .status {
-    background: var(--paper);
-    color: var(--forest);
-    border: 1px solid var(--forest);
-  }
+        .is-reserved .status {
+            background: var(--paper);
+            color: var(--forest);
+            border: 1px solid var(--forest);
+        }
 
-  .is-reserved .photo { filter: saturate(0.5); }
+        .is-reserved .photo {
+            filter: saturate(0.5);
+        }
 
-  .is-taken .status {
-    background: var(--sage);
-    color: var(--paper);
-    border: 1px solid var(--sage);
-  }
+        .is-taken .status {
+            background: var(--sage);
+            color: var(--paper);
+            border: 1px solid var(--sage);
+        }
 
-  .is-taken .photo { filter: grayscale(1); opacity: 0.45; }
+        .is-taken .photo {
+            filter: grayscale(1);
+            opacity: 0.45;
+        }
 
-  .is-taken figcaption::before,
-  .is-taken .name { color: var(--sage); }
+        .is-taken figcaption::before,
+        .is-taken .name {
+            color: var(--sage);
+        }
 
-  .is-taken .name { text-decoration: line-through; text-decoration-thickness: 1px; }
+        .is-taken .name {
+            text-decoration: line-through;
+            text-decoration-thickness: 1px;
+        }
 
-  .is-taken .note { opacity: 0.5; }
+        .is-taken .note {
+            opacity: 0.5;
+        }
 
-  .zoom {
-    display: block;
-    width: 100%;
-    padding: 0;
-    border: 0;
-    background: none;
-    cursor: zoom-in;
-  }
+        .zoom {
+            display: block;
+            width: 100%;
+            padding: 0;
+            border: 0;
+            background: none;
+            cursor: zoom-in;
+        }
 
-  body:has(#viewer[open]) { overflow: hidden; }
+        body:has(#viewer[open]) {
+            overflow: hidden;
+        }
 
-  #viewer {
-    width: 100%;
-    height: 100%;
-    max-width: none;
-    max-height: none;
-    margin: 0;
-    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-    border: 0;
-    background: rgba(20, 38, 28, 0.96);
-    cursor: zoom-out;
-  }
+        #viewer {
+            width: 100%;
+            height: 100%;
+            max-width: none;
+            max-height: none;
+            margin: 0;
+            padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+            border: 0;
+            background: rgba(20, 38, 28, 0.96);
+            cursor: zoom-out;
+        }
 
-  #viewer[open] {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+        #viewer[open] {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-  #viewer img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-  }
+        #viewer img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
 
-  .photo {
-    display: block;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
-    background: var(--sage-light);
-  }
+        .photo {
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            background: var(--sage-light);
+        }
 
-  /* Заглушка: замените <div class="photo placeholder"> на <img class="photo"> */
-  .placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--sage);
-    border: 1px dashed var(--sage);
-  }
+        /* Заглушка: замените <div class="photo placeholder"> на <img class="photo"> */
+        .placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--sage);
+            border: 1px dashed var(--sage);
+        }
 
-  figcaption { padding-top: 0.9rem; }
+        figcaption {
+            padding-top: 0.9rem;
+        }
 
-  .name {
-    display: inline;
-    margin: 0;
-    font-size: 1.25rem;
-    font-style: italic;
-    line-height: 1.3;
-  }
+        .name {
+            display: inline;
+            margin: 0;
+            font-size: 1.25rem;
+            font-style: italic;
+            line-height: 1.3;
+        }
 
-  .note {
-    margin: 0.25rem 0 0;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    opacity: 0.8;
-  }
+        .note {
+            margin: 0.25rem 0 0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            opacity: 0.8;
+        }
 
-  footer {
-    margin-top: clamp(3.5rem, 8vw, 6rem);
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--rule);
-    font-size: 0.95rem;
-  }
+        footer {
+            margin-top: clamp(3.5rem, 8vw, 6rem);
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--rule);
+            font-size: 0.95rem;
+        }
 
-  footer p { margin: 0; max-width: 34rem; }
+        footer p {
+            margin: 0;
+            max-width: 34rem;
+        }
 
-  @media (max-width: 40rem) {
-    body { font-size: 1rem; line-height: 1.55; }
+        @media (max-width: 40rem) {
+            body {
+                font-size: 1rem;
+                line-height: 1.55;
+            }
 
-    /* Три равных крупных области для нажатия пальцем */
-    .contact {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.5rem;
-      margin-bottom: 1.75rem;
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-    }
-    .contact a {
-      display: block;
-      min-height: 48px;
-      line-height: 46px;
-      text-align: center;
-      border: 1px solid var(--forest);
-    }
-    .contact a:active { background: var(--sage-light); }
+            /* Три равных крупных области для нажатия пальцем */
+            .contact {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.5rem;
+                margin-bottom: 1.75rem;
+                font-size: 0.72rem;
+                letter-spacing: 0.1em;
+            }
 
-    header { margin-bottom: 1.25rem; }
-    h1 { font-size: 2.6rem; margin-bottom: 1rem; }
-    .rule { margin-bottom: 1.25rem; }
+            .contact a {
+                display: block;
+                min-height: 48px;
+                line-height: 46px;
+                text-align: center;
+                border: 1px solid var(--forest);
+            }
 
-    .grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 0.75rem; }
-    figcaption::before, .name { font-size: 1.05rem; }
-    .note { font-size: 0.875rem; }
-    .status { top: 0.5rem; left: 0.5rem; padding: 0.25rem 0.5rem; font-size: 0.6rem; letter-spacing: 0.12em; }
-    figcaption { padding-top: 0.6rem; }
+            .contact a:active {
+                background: var(--sage-light);
+            }
 
-    footer { margin-top: 2.5rem; }
-  }
-</style>
+            header {
+                margin-bottom: 1.25rem;
+            }
+
+            h1 {
+                font-size: 2.6rem;
+                margin-bottom: 1rem;
+            }
+
+            .rule {
+                margin-bottom: 1.25rem;
+            }
+
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem 0.75rem;
+            }
+
+            figcaption::before,
+            .name {
+                font-size: 1.05rem;
+            }
+
+            .note {
+                font-size: 0.875rem;
+            }
+
+            .status {
+                top: 0.5rem;
+                left: 0.5rem;
+                padding: 0.25rem 0.5rem;
+                font-size: 0.6rem;
+                letter-spacing: 0.12em;
+            }
+
+            figcaption {
+                padding-top: 0.6rem;
+            }
+
+            footer {
+                margin-top: 2.5rem;
+            }
+        }
+    </style>
 </head>
+
 <body>
-<div class="page">
+    <div class="page">
 
-  <header>
-    <p class="eyebrow">ЖК «Золотая Гавань»</p>
-    <h1>Растения ищут <em>новый дом</em></h1>
-    <!-- EDIT: ваш вступительный текст -->
-    <p>Я переезжаю, и растения поехать со мной не смогут. За каждым из них я много лет ухаживаю, и теперь они готовы украсить чей-то подоконник. Посмотрите и напишите, если кто-то приглянулся.</p>
-  </header>
+        <header>
+            <p class="eyebrow">ЖК «Золотая Гавань»</p>
+            <h1>Растения ищут <em>новый дом</em></h1>
+            <p>Я переезжаю, и растения поехать со мной не смогут. За каждым из них я много лет ухаживаю, и теперь они
+                готовы украсить чей-то подоконник. Посмотрите и напишите, если кто-то приглянулся.</p>
+        </header>
 
-  <!-- EDIT: замените +70000000000 на свой номер (формат +7...) и your_username на свой Telegram -->
-  <nav aria-label="Связаться со мной">
-    <ul class="contact">
-      <li><a href="tel:+70000000000">Позвонить</a></li>
-      <li><a href="sms:+70000000000">SMS</a></li>
-      <li><a href="https://t.me/your_username">Telegram</a></li>
-    </ul>
-  </nav>
+        <nav aria-label="Связаться со мной">
+            <ul class="contact">
+                <li><a href="tel:+79696541730">Позвонить</a></li>
+                <li><a href="sms:+79696541730">SMS</a></li>
+                <li><a href="https://t.me/tatakozinska">Telegram</a></li>
+            </ul>
+        </nav>
 
-  <hr class="rule">
+        <hr class="rule">
 
-  <main>
-    <ul class="grid">
+        <main>
+            <ul class="grid">
+                <li>
+                    <figure><button type="button" class="zoom" title="Юкка" aria-label="Увеличить фото 1"><img class="photo"
+                                src="images/webp/small/IMG_5417.webp" data-full="images/webp/big/IMG_5417.webp"
+                                width="600" height="800" alt="Комнатное растение в горшке" decoding="async"></button>
+                        <figcaption>Юкка</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure><button type="button" class="zoom" title="Фикус каучуконосный" aria-label="Увеличить фото 2"><img class="photo"
+                                src="images/webp/small/IMG_5418.webp" data-full="images/webp/big/IMG_5418.webp"
+                                width="600" height="800" alt="Комнатное растение в горшке" loading="lazy"
+                                decoding="async"></button>
+                        <figcaption>Фикус каучуконосный</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure><button type="button" class="zoom" title="Сансевиерия" aria-label="Увеличить фото 3"><img class="photo"
+                                src="images/webp/small/IMG_5419.webp" data-full="images/webp/big/IMG_5419.webp"
+                                width="600" height="800" alt="Комнатное растение в горшке" loading="lazy"
+                                decoding="async"></button>
+                        <figcaption>Сансевиерия</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure><button type="button" class="zoom" title="Сансевиерия" aria-label="Увеличить фото 4"><img class="photo"
+                                src="images/webp/small/IMG_5420.webp" data-full="images/webp/big/IMG_5420.webp"
+                                width="600" height="800" alt="Комнатное растение в горшке" loading="lazy"
+                                decoding="async"></button>
+                        <figcaption>Сансевиерия</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure><button type="button" class="zoom" title="Сансевиерия" aria-label="Увеличить фото 5"><img class="photo"
+                                src="images/webp/small/IMG_5421.webp" data-full="images/webp/big/IMG_5421.webp"
+                                width="600" height="800" alt="Комнатное растение в горшке" loading="lazy"
+                                decoding="async"></button>
+                        <figcaption>Сансевиерия</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure><button type="button" class="zoom" title="Сансевиерия" aria-label="Увеличить фото 6"><img class="photo"
+                                src="images/webp/small/IMG_5422.webp" data-full="images/webp/big/IMG_5422.webp"
+                                width="600" height="800" alt="Комнатное растение в горшке" loading="lazy"
+                                decoding="async"></button>
+                        <figcaption>Сансевиерия</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure><button type="button" class="zoom" title="Сансевиерия" aria-label="Увеличить фото 7"><img class="photo"
+                                src="images/webp/small/IMG_5423.webp" data-full="images/webp/big/IMG_5423.webp"
+                                width="600" height="800" alt="Комнатное растение в горшке" loading="lazy"
+                                decoding="async"></button>
+                        <figcaption>Сансевиерия</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure><button type="button" class="zoom" title="Толстянка (денежное дерево)" aria-label="Увеличить фото 8"><img class="photo"
+                                src="images/webp/small/IMG_5424.webp" data-full="images/webp/big/IMG_5424.webp"
+                                width="600" height="800" alt="Комнатное растение в горшке" loading="lazy"
+                                decoding="async"></button>
+                        <figcaption>Толстянка (денежное дерево)</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure><button type="button" class="zoom" title="Орхидея фаленопсис" aria-label="Увеличить фото 9"><img class="photo"
+                                src="images/webp/small/IMG_5425.webp" data-full="images/webp/big/IMG_5425.webp"
+                                width="600" height="800" alt="Комнатное растение в горшке" loading="lazy"
+                                decoding="async"></button>
+                        <figcaption>Орхидея фаленопсис</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure><button type="button" class="zoom" title="Хавортия" aria-label="Увеличить фото 10"><img class="photo"
+                                src="images/webp/small/IMG_5426.webp" data-full="images/webp/big/IMG_5426.webp"
+                                width="600" height="800" alt="Комнатное растение в горшке" loading="lazy"
+                                decoding="async"></button>
+                        <figcaption>Хавортия</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure><button type="button" class="zoom" title="Гастерия или близкий суккулент" aria-label="Увеличить фото 11"><img class="photo"
+                                src="images/webp/small/IMG_5427.webp" data-full="images/webp/big/IMG_5427.webp"
+                                width="600" height="800" alt="Сансевиерия" loading="lazy" decoding="async"></button>
+                        <figcaption>Гастерия или близкий суккулент</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure><button type="button" class="zoom" title="Сансевиерия цилиндрическая" aria-label="Увеличить фото 12"><img class="photo"
+                                src="images/webp/small/IMG_5428.webp" data-full="images/webp/big/IMG_5428.webp"
+                                width="600" height="800" alt="Комнатное растение в горшке" loading="lazy"
+                                decoding="async"></button>
+                        <figcaption>Сансевиерия цилиндрическая</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure><button type="button" class="zoom" title="Кротон (кодиеум)" aria-label="Увеличить фото 13"><img class="photo"
+                                src="images/webp/small/IMG_5429.webp" data-full="images/webp/big/IMG_5429.webp"
+                                width="600" height="800" alt="Комнатное растение в горшке" loading="lazy"
+                                decoding="async"></button>
+                        <figcaption>Кротон (кодиеум)</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure><button type="button" class="zoom" title="Замиокулькас" aria-label="Увеличить фото 14"><img class="photo"
+                                src="images/webp/small/IMG_5430.webp" data-full="images/webp/big/IMG_5430.webp"
+                                width="600" height="800" alt="Замиокулькас" loading="lazy" decoding="async"></button>
+                        <figcaption>Замиокулькас</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure><button type="button" class="zoom" title="Пилея или похожее мелколистное растение" aria-label="Увеличить фото 15"><img class="photo"
+                                src="images/webp/small/IMG_5431.webp" data-full="images/webp/big/IMG_5431.webp"
+                                width="600" height="800" alt="Комнатное растение в горшке" loading="lazy"
+                                decoding="async"></button>
+                        <figcaption>Пилея или похожее мелколистное растение</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure><button type="button" class="zoom" title="Фикус микрокарпа «Гинсенг»" aria-label="Увеличить фото 16"><img class="photo"
+                                src="images/webp/small/IMG_5432.webp" data-full="images/webp/big/IMG_5432.webp"
+                                width="600" height="800" alt="Комнатное растение в горшке" loading="lazy"
+                                decoding="async"></button>
+                        <figcaption>Фикус микрокарпа «Гинсенг»</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure><button type="button" class="zoom" title="Орхидея фаленопсис" aria-label="Увеличить фото 17"><img class="photo"
+                                src="images/webp/small/IMG_5433.webp" data-full="images/webp/big/IMG_5433.webp"
+                                width="600" height="800" alt="Фикус каучуконосный" loading="lazy"
+                                decoding="async"></button>
+                        <figcaption>Орхидея фаленопсис</figcaption>
+                    </figure>
+                </li>
 
-      <!-- Каждый <li> — одно растение, номер проставляется автоматически по порядку. Название и описание необязательны. -->
+            </ul>
+        </main>
 
-      <li>
-        <figure>
-          <button type="button" class="zoom" aria-label="Увеличить фото 1"><img class="photo" src="images/webp/small/IMG_4950.webp" data-full="images/webp/big/IMG_4950.webp" width="600" height="800" alt="Комнатное растение в горшке" decoding="async"></button>
-          <figcaption>
-            <p class="name">Название растения</p>
-            <p class="note">Краткое описание: свет, размер, особенности.</p>
-          </figcaption>
-        </figure>
-      </li>
+        <!-- Для нового фото оберните <img class="photo"> в <button type="button" class="zoom"> и укажите data-full с большой версией -->
+        <dialog id="viewer" aria-label="Просмотр фото"><img alt=""></dialog>
 
-      <li class="is-reserved">
-        <figure>
-          <p class="status">Забронировано</p>
-          <button type="button" class="zoom" aria-label="Увеличить фото 2"><img class="photo" src="images/webp/small/IMG_4951.webp" data-full="images/webp/big/IMG_4951.webp" width="600" height="800" alt="Комнатное растение в горшке" decoding="async"></button>
-          <figcaption>
-            <p class="name">Название растения</p>
-            <p class="note">Краткое описание: свет, размер, особенности.</p>
-          </figcaption>
-        </figure>
-      </li>
+        <script>
+            const viewer = document.getElementById('viewer');
+            const viewerImg = viewer.querySelector('img');
+            document.querySelectorAll('.zoom').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    const img = btn.querySelector('img');
+                    viewerImg.src = img.dataset.full || img.currentSrc || img.src;
+                    viewerImg.alt = img.alt;
+                    viewer.showModal();
+                    history.pushState({ viewer: true }, '');
+                });
+            });
+            viewer.addEventListener('click', function () { viewer.close(); });
 
-      <li class="is-taken">
-        <figure>
-          <p class="status">Забрали</p>
-          <button type="button" class="zoom" aria-label="Увеличить фото 3"><img class="photo" src="images/webp/small/image.png" data-full="images/webp/big/image.png" width="700" height="678" alt="Комнатное растение в горшке" decoding="async"></button>
-          <figcaption>
-            <p class="name">Название растения</p>
-            <p class="note">Краткое описание.</p>
-          </figcaption>
-        </figure>
-      </li>
+            // Жест «назад» и кнопка «назад» закрывают просмотр, а не уходят со страницы
+            viewer.addEventListener('close', function () {
+                if (history.state && history.state.viewer) history.back();
+            });
+            window.addEventListener('popstate', function () {
+                if (viewer.open) viewer.close();
+            });
+        </script>
 
-      <!-- ЗАГЛУШКА -->
-      <li>
-        <figure>
-          <div class="photo placeholder" role="img" aria-label="Место для фото растения">Фото</div>
-          <figcaption>
-            <p class="name">Название растения</p>
-          </figcaption>
-        </figure>
-      </li>
-
-      <!-- ЗАГЛУШКА -->
-      <li>
-        <figure>
-          <div class="photo placeholder" role="img" aria-label="Место для фото растения">Фото</div>
-          <figcaption>
-            <p class="name">Название растения</p>
-            <p class="note">Краткое описание.</p>
-          </figcaption>
-        </figure>
-      </li>
-
-      <!-- ЗАГЛУШКА -->
-      <li>
-        <figure>
-          <div class="photo placeholder" role="img" aria-label="Место для фото растения">Фото</div>
-          <figcaption></figcaption>
-        </figure>
-      </li>
-
-    </ul>
-  </main>
-
-  <!-- Для нового фото оберните <img class="photo"> в <button type="button" class="zoom"> и укажите data-full с большой версией -->
-  <dialog id="viewer" aria-label="Просмотр фото"><img alt=""></dialog>
-
-  <script>
-    const viewer = document.getElementById('viewer');
-    const viewerImg = viewer.querySelector('img');
-    document.querySelectorAll('.zoom').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        const img = btn.querySelector('img');
-        viewerImg.src = img.dataset.full || img.currentSrc || img.src;
-        viewerImg.alt = img.alt;
-        viewer.showModal();
-        history.pushState({ viewer: true }, '');
-      });
-    });
-    viewer.addEventListener('click', function () { viewer.close(); });
-
-    // Жест «назад» и кнопка «назад» закрывают просмотр, а не уходят со страницы
-    viewer.addEventListener('close', function () {
-      if (history.state && history.state.viewer) history.back();
-    });
-    window.addEventListener('popstate', function () {
-      if (viewer.open) viewer.close();
-    });
-  </script>
-
-</div>
+    </div>
 </body>
+
 </html>
