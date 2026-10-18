@@ -20,14 +20,14 @@
     background: #d9d9d4;
   }
 
-  /* Лист A4: 2 × 2 листовки формата A6, без цветов и заливок: только чёрный на белом */
+  /* Лист A4: 2 × 3 листовки, только чёрный на белом */
   .sheet {
     width: 210mm;
     height: 297mm;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
     background: #fff;
     color: var(--ink);
     font-family: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, serif;
@@ -39,7 +39,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 10mm 9mm 9mm;
+    padding: 4mm 7mm;
     text-align: center;
     /* Пунктир между листовками показывает, где резать */
     border-right: 0.3mm dashed var(--cut);
@@ -47,12 +47,12 @@
   }
 
   .card:nth-child(2n) { border-right: 0; }
-  .card:nth-child(n + 3) { border-bottom: 0; }
+  .card:nth-child(n + 5) { border-bottom: 0; }
 
   .place {
     margin: 0;
     font-family: "Helvetica Neue", Arial, sans-serif;
-    font-size: 8pt;
+    font-size: 7pt;
     font-weight: 700;
     letter-spacing: 0.22em;
     text-transform: uppercase;
@@ -60,9 +60,9 @@
   }
 
   h1 {
-    margin: 3mm 0 0;
+    margin: 2mm 0 0;
     font-weight: 400;
-    font-size: 25pt;
+    font-size: 18pt;
     line-height: 1.05;
     letter-spacing: -0.02em;
   }
@@ -70,22 +70,22 @@
   h1 em { font-style: italic; }
 
   .lead {
-    margin: 3mm 0 0;
-    font-size: 11pt;
+    margin: 2mm 0 0;
+    font-size: 9pt;
     line-height: 1.35;
   }
 
-  /* Замените <div class="qr"> на <img class="qr" src="qr.png" alt="QR-код"> — чёрный код на белом, без цветных рамок */
+  /* QR должен быть чёрным на белом, без цветных рамок */
   .qr {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 62mm;
-    height: 62mm;
-    margin: 4mm 0;
-    padding: 4mm;
+    width: 42mm;
+    height: 42mm;
+    margin: 2mm 0;
+    padding: 0;
     font-family: "Helvetica Neue", Arial, sans-serif;
-    font-size: 9pt;
+    font-size: 8pt;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--mute);
@@ -97,15 +97,15 @@
 
   .cta {
     margin: 0;
-    font-size: 11.5pt;
+    font-size: 9.5pt;
     font-style: italic;
     line-height: 1.35;
   }
 
   .free {
-    margin: 2mm 0 0;
+    margin: 1mm 0 0;
     font-family: "Helvetica Neue", Arial, sans-serif;
-    font-size: 8pt;
+    font-size: 7pt;
     font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
@@ -130,7 +130,7 @@
       <h1>Отдаю растения в <em>добрые руки</em></h1>
       <p class="lead">Переезжаю и раздаю комнатные растения.</p>
     </header>
-    <div class="qr" role="img" aria-label="Место для QR-кода">QR</div>
+    <img class="qr" src="images/qr.png" alt="QR-код на сайт">
     <footer>
       <p class="cta">Наведите камеру телефона на код и выберите растение</p>
       <p class="free">Бесплатно</p>
@@ -143,7 +143,7 @@
       <h1>Отдаю растения в <em>добрые руки</em></h1>
       <p class="lead">Переезжаю и раздаю комнатные растения.</p>
     </header>
-    <div class="qr" role="img" aria-label="Место для QR-кода">QR</div>
+    <img class="qr" src="images/qr.png" alt="QR-код на сайт">
     <footer>
       <p class="cta">Наведите камеру телефона на код и выберите растение</p>
       <p class="free">Бесплатно</p>
@@ -156,7 +156,7 @@
       <h1>Отдаю растения в <em>добрые руки</em></h1>
       <p class="lead">Переезжаю и раздаю комнатные растения.</p>
     </header>
-    <div class="qr" role="img" aria-label="Место для QR-кода">QR</div>
+    <img class="qr" src="images/qr.png" alt="QR-код на сайт">
     <footer>
       <p class="cta">Наведите камеру телефона на код и выберите растение</p>
       <p class="free">Бесплатно</p>
@@ -169,7 +169,33 @@
       <h1>Отдаю растения в <em>добрые руки</em></h1>
       <p class="lead">Переезжаю и раздаю комнатные растения.</p>
     </header>
-    <div class="qr" role="img" aria-label="Место для QR-кода">QR</div>
+    <img class="qr" src="images/qr.png" alt="QR-код на сайт">
+    <footer>
+      <p class="cta">Наведите камеру телефона на код и выберите растение</p>
+      <p class="free">Бесплатно</p>
+    </footer>
+  </article>
+
+  <article class="card">
+    <header>
+      <p class="place">ЖК «Золотая Гавань»</p>
+      <h1>Отдаю растения в <em>добрые руки</em></h1>
+      <p class="lead">Переезжаю и раздаю комнатные растения.</p>
+    </header>
+    <img class="qr" src="images/qr.png" alt="QR-код на сайт">
+    <footer>
+      <p class="cta">Наведите камеру телефона на код и выберите растение</p>
+      <p class="free">Бесплатно</p>
+    </footer>
+  </article>
+
+  <article class="card">
+    <header>
+      <p class="place">ЖК «Золотая Гавань»</p>
+      <h1>Отдаю растения в <em>добрые руки</em></h1>
+      <p class="lead">Переезжаю и раздаю комнатные растения.</p>
+    </header>
+    <img class="qr" src="images/qr.png" alt="QR-код на сайт">
     <footer>
       <p class="cta">Наведите камеру телефона на код и выберите растение</p>
       <p class="free">Бесплатно</p>

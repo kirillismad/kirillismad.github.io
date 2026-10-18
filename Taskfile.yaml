@@ -18,3 +18,11 @@ tasks:
         msg: ffmpeg не найден, установите его командой brew install ffmpeg
     cmds:
       - bash scripts/convert-webp.sh {{.ORIGIN}} {{.OUT}} {{.SMALL_SIZE}} {{.BIG_SIZE}} {{.SMALL_QUALITY}} {{.BIG_QUALITY}}
+
+  gen-qr:
+    desc: Сгенерировать QR-коды для всех изображений в images/origin
+    preconditions:
+      - sh: command -v qrencode
+        msg: qrencode не найден, установите его командой brew install qrencode
+    cmds:
+      - qrencode -o images/qr.png -s 12 -m 1 'https://kirillismad.github.io/'
