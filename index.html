@@ -140,7 +140,7 @@
             position: relative;
         }
 
-        /* Статус: <li class="is-reserved"> или <li class="is-taken"> + <p class="status"> первым в <figure> */
+        /* Плашки показываются для зарезервированных и уже забранных растений. */
         .status {
             position: absolute;
             top: 0.75rem;
@@ -358,199 +358,125 @@
 <body>
     <div class="page">
 
-        <header>
-            <p class="eyebrow">ЖК «Золотая Гавань»</p>
-            <h1>Растения ищут <em>новый дом</em></h1>
-            <p>Я переезжаю, и растения поехать со мной не смогут. За каждым из них я много лет ухаживаю, и теперь они
-                готовы украсить чей-то подоконник. Посмотрите и напишите, если кто-то приглянулся.</p>
-        </header>
+        <header data-content="intro"></header>
 
-        <nav aria-label="Связаться со мной">
-            <ul class="contact">
-                <li><a href="tel:+79696541730">Позвонить</a></li>
-                <li><a href="sms:+79696541730">SMS</a></li>
-                <li><a href="https://t.me/tatakozinska">Telegram</a></li>
-            </ul>
+        <nav data-content="contacts">
+            <ul class="contact"></ul>
         </nav>
 
         <hr class="rule">
 
         <main>
-            <ul class="grid">
-                <li class="is-reserved">
-                    <figure><p class="status">Забронировано</p><button type="button" class="zoom" title="Юкка слоновая (Yucca elephantipes)"
-                            aria-label="Увеличить фото 1"><img class="photo" src="images/webp/small/IMG_5417.webp"
-                                data-full="images/webp/big/IMG_5417.webp" width="600" height="800"
-                                alt="Комнатное растение в горшке" decoding="async"></button>
-                        <figcaption>Юкка слоновая (Yucca elephantipes)</figcaption>
-                    </figure>
-                </li>
-                <li class="is-reserved">
-                    <figure><p class="status">Забронировано</p><button type="button" class="zoom" title="Фикус Эластика Абиджан (Ficus Elastica Abidjan)"
-                            aria-label="Увеличить фото 2"><img class="photo" src="images/webp/small/IMG_5418.webp"
-                                data-full="images/webp/big/IMG_5418.webp" width="600" height="800"
-                                alt="Комнатное растение в горшке" loading="lazy" decoding="async"></button>
-                        <figcaption>Фикус Эластика Абиджан (Ficus Elastica Abidjan)<p class="note">Высота 75 см</p>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="is-taken">
-                    <figure>
-                        <p class="status">Забрали</p><button type="button" class="zoom"
-                            title="Сансевиерия Хана (Sansevieria hahnii)" aria-label="Увеличить фото 3"><img
-                                class="photo" src="images/webp/small/IMG_5419.webp"
-                                data-full="images/webp/big/IMG_5419.webp" width="600" height="800"
-                                alt="Комнатное растение в горшке" loading="lazy" decoding="async"></button>
-                        <figcaption>Сансевиерия Хана (Sansevieria hahnii)</figcaption>
-                    </figure>
-                </li>
-                <li>
-                    <figure><button type="button" class="zoom" title="Сансевиерия Хана (Sansevieria hahnii)"
-                            aria-label="Увеличить фото 4"><img class="photo" src="images/webp/small/IMG_5420.webp"
-                                data-full="images/webp/big/IMG_5420.webp" width="600" height="800"
-                                alt="Комнатное растение в горшке" loading="lazy" decoding="async"></button>
-                        <figcaption>Сансевиерия Хана (Sansevieria hahnii)</figcaption>
-                    </figure>
-                </li>
-                <li>
-                    <figure><button type="button" class="zoom" title="Сансевиерия Хана (Sansevieria hahnii)"
-                            aria-label="Увеличить фото 5"><img class="photo" src="images/webp/small/IMG_5421.webp"
-                                data-full="images/webp/big/IMG_5421.webp" width="600" height="800"
-                                alt="Комнатное растение в горшке" loading="lazy" decoding="async"></button>
-                        <figcaption>Сансевиерия Хана (Sansevieria hahnii)</figcaption>
-                    </figure>
-                </li>
-                <li>
-                    <figure><button type="button" class="zoom" title="Сансевиерия Хана (Sansevieria hahnii)"
-                            aria-label="Увеличить фото 6"><img class="photo" src="images/webp/small/IMG_5422.webp"
-                                data-full="images/webp/big/IMG_5422.webp" width="600" height="800"
-                                alt="Комнатное растение в горшке" loading="lazy" decoding="async"></button>
-                        <figcaption>Сансевиерия Хана (Sansevieria hahnii)</figcaption>
-                    </figure>
-                </li>
-                <li>
-                    <figure><button type="button" class="zoom" title="Сансевиерия Хана (Sansevieria hahnii)"
-                            aria-label="Увеличить фото 7"><img class="photo" src="images/webp/small/IMG_5423.webp"
-                                data-full="images/webp/big/IMG_5423.webp" width="600" height="800"
-                                alt="Комнатное растение в горшке" loading="lazy" decoding="async"></button>
-                        <figcaption>Сансевиерия Хана (Sansevieria hahnii)</figcaption>
-                    </figure>
-                </li>
-                <li>
-                    <figure><button type="button" class="zoom" title="Толстянка (Crássula)"
-                            aria-label="Увеличить фото 8"><img class="photo" src="images/webp/small/IMG_5424.webp"
-                                data-full="images/webp/big/IMG_5424.webp" width="600" height="800"
-                                alt="Комнатное растение в горшке" loading="lazy" decoding="async"></button>
-                        <figcaption>Толстянка (Crássula)</figcaption>
-                    </figure>
-                </li>
-                <li class="is-reserved">
-                    <figure><p class="status">Забронировано</p><button type="button" class="zoom" title="Орхидея Фаленопсис (Phalaenopsis)"
-                            aria-label="Увеличить фото 9"><img class="photo" src="images/webp/small/IMG_5425.webp"
-                                data-full="images/webp/big/IMG_5425.webp" width="600" height="800"
-                                alt="Комнатное растение в горшке" loading="lazy" decoding="async"></button>
-                        <figcaption>Орхидея Фаленопсис (Phalaenopsis)<p class="note">Высота 25 см. Есть свежие цветоносы</p></figcaption>
-                    </figure>
-                </li>
-                <li class="is-taken">
-                    <figure>
-                        <p class="status">Забрали</p><button type="button" class="zoom"
-                            title="Хавортия полосатая (Haworthiopsis fasciata)" aria-label="Увеличить фото 10"><img
-                                class="photo" src="images/webp/small/IMG_5426.webp"
-                                data-full="images/webp/big/IMG_5426.webp" width="600" height="800"
-                                alt="Комнатное растение в горшке" loading="lazy" decoding="async"></button>
-                        <figcaption>Хавортия полосатая (Haworthiopsis fasciata)</figcaption>
-                    </figure>
-                </li>
-                <li class="is-taken">
-                    <figure>
-                        <p class="status">Забрали</p><button type="button" class="zoom"
-                            title="Гастерия или близкий суккулент" aria-label="Увеличить фото 11"><img class="photo"
-                                src="images/webp/small/IMG_5427.webp" data-full="images/webp/big/IMG_5427.webp"
-                                width="600" height="800" alt="Сансевиерия" loading="lazy" decoding="async"></button>
-                        <figcaption>Гастерия Dragon Skin</figcaption>
-                    </figure>
-                </li>
-                <li class="is-reserved">
-                    <figure><p class="status">Забронировано</p><button type="button" class="zoom"
-                            title="Сансевиерия цилиндрическая (Sansevieria cylindrica)"
-                            aria-label="Увеличить фото 12"><img class="photo" src="images/webp/small/IMG_5428.webp"
-                                data-full="images/webp/big/IMG_5428.webp" width="600" height="800"
-                                alt="Комнатное растение в горшке" loading="lazy" decoding="async"></button>
-                        <figcaption>Сансевиерия цилиндрическая (Sansevieria cylindrica) 90см<p class="note">Сансевиерия
-                                трехполосая
-                                (Sansevieria trifasciata),<br>Хавортия полосатая (Haworthiopsis fasciata)</p>
-                        </figcaption>
-
-                    </figure>
-                </li>
-                <li class="is-reserved">
-                    <figure><p class="status">Забронировано</p><button type="button" class="zoom" title="Кротон (кодиеум)"
-                            aria-label="Увеличить фото 13"><img class="photo" src="images/webp/small/IMG_5429.webp"
-                                data-full="images/webp/big/IMG_5429.webp" width="600" height="800"
-                                alt="Комнатное растение в горшке" loading="lazy" decoding="async"></button>
-                        <figcaption>Кротон (Codiaeum variegatum)</figcaption>
-                    </figure>
-                </li>
-                <li class="is-reserved">
-                    <figure><p class="status">Забронировано</p><button type="button" class="zoom" title="Замиокулькас (Zamioculcas)"
-                            aria-label="Увеличить фото 14"><img class="photo" src="images/webp/small/IMG_5430.webp"
-                                data-full="images/webp/big/IMG_5430.webp" width="600" height="800" alt="Замиокулькас"
-                                loading="lazy" decoding="async"></button>
-                        <figcaption>Замиокулькас (Zamioculcas)<p class="note">Высота — около 95 см.</p>
-                        </figcaption>
-                    </figure>
-                </li>
-                <li class="is-reserved">
-                    <figure><p class="status">Забронировано</p><button type="button" class="zoom" title="Аихризон (Aichryson)"
-                            aria-label="Увеличить фото 15"><img class="photo" src="images/webp/small/IMG_5431.webp"
-                                data-full="images/webp/big/IMG_5431.webp" width="600" height="800"
-                                alt="Комнатное растение в горшке" loading="lazy" decoding="async"></button>
-                        <figcaption>Аихризон (Aichryson)</figcaption>
-                    </figure>
-                </li>
-                <li class="is-reserved">
-                    <figure><p class="status">Забронировано</p><button type="button" class="zoom" title="Фикус микрокарпа «Гинсенг» (Ficus microcarpa 'Ginseng')"
-                            aria-label="Увеличить фото 16"><img class="photo" src="images/webp/small/IMG_5432.webp"
-                                data-full="images/webp/big/IMG_5432.webp" width="600" height="800"
-                                alt="Комнатное растение в горшке" loading="lazy" decoding="async"></button>
-                        <figcaption>Фикус микрокарпа «Гинсенг» (Ficus microcarpa 'Ginseng')<p class="note">Высота 25 см</p></figcaption>
-                    </figure>
-                </li>
-                <li class="is-reserved">
-                    <figure><p class="status">Забронировано</p><button type="button" class="zoom" title="Орхидея фаленопсис"
-                            aria-label="Увеличить фото 17"><img class="photo" src="images/webp/small/IMG_5433.webp"
-                                data-full="images/webp/big/IMG_5433.webp" width="600" height="800"
-                                alt="Фикус каучуконосный" loading="lazy" decoding="async"></button>
-                        <figcaption>Орхидея Фаленопсис (Phalaenopsis)<p class="note">Высота 25 см. Есть свежие цветоносы</p></figcaption>
-                    </figure>
-                </li>
-                <li class="is-reserved">
-                    <figure><p class="status">Забронировано</p><button type="button" class="zoom" title="Фикус Эластика Абиджан (Ficus Elastica Abidjan)"
-                            aria-label="Увеличить фото 18"><img class="photo" src="images/webp/small/IMG_5416.webp"
-                                data-full="images/webp/big/IMG_5416.webp" width="600" height="800"
-                                alt="Фикус Эластика Абиджан, рядом кот" loading="lazy" decoding="async"></button>
-                        <figcaption>Фикус Эластика Абиджан (Ficus Elastica Abidjan)<p class="note">Высота 95 см</p>
-                        </figcaption>
-                    </figure>
-                </li>
-            </ul>
+            <ul class="grid" data-content="plants"></ul>
         </main>
 
-        <!-- Для нового фото оберните <img class="photo"> в <button type="button" class="zoom"> и укажите data-full с большой версией -->
         <dialog id="viewer" aria-label="Просмотр фото"><img alt=""></dialog>
 
         <script>
+            const pageContent = {
+                location: 'ЖК «Золотая Гавань»',
+                headingStart: 'Растения ищут ',
+                headingEmphasis: 'новый дом',
+                introduction: 'Я переезжаю, и растения поехать со мной не смогут. За каждым из них я много лет ухаживаю, и теперь они готовы украсить чей-то подоконник. Посмотрите и напишите, если кто-то приглянулся.',
+                contactsLabel: 'Связаться со мной',
+                contacts: [
+                    { label: 'Позвонить', href: 'tel:+79696541730' },
+                    { label: 'SMS', href: 'sms:+79696541730' },
+                    { label: 'Telegram', href: 'https://t.me/tatakozinska' }
+                ],
+                plants: [
+                    { image: 'IMG_5417', name: 'Юкка слоновая (Yucca elephantipes)', status: 'active' },
+                    { image: 'IMG_5418', name: 'Фикус Эластика Абиджан (Ficus Elastica Abidjan)', note: 'Высота 75 см', status: 'active' },
+                    { image: 'IMG_5419', name: 'Сансевиерия Хана (Sansevieria hahnii)', status: 'taken' },
+                    { image: 'IMG_5420', name: 'Сансевиерия Хана (Sansevieria hahnii)', status: 'active' },
+                    { image: 'IMG_5421', name: 'Сансевиерия Хана (Sansevieria hahnii)', status: 'active' },
+                    { image: 'IMG_5422', name: 'Сансевиерия Хана (Sansevieria hahnii)', status: 'active' },
+                    { image: 'IMG_5423', name: 'Сансевиерия Хана (Sansevieria hahnii)', status: 'active' },
+                    { image: 'IMG_5424', name: 'Толстянка (Crássula)', status: 'active' },
+                    { image: 'IMG_5425', name: 'Орхидея Фаленопсис (Phalaenopsis)', note: 'Высота 25 см. Есть свежие цветоносы', status: 'active' },
+                    { image: 'IMG_5426', name: 'Хавортия полосатая (Haworthiopsis fasciata)', status: 'taken' },
+                    { image: 'IMG_5427', name: 'Гастерия Dragon Skin', title: 'Гастерия или близкий суккулент', alt: 'Сансевиерия', status: 'taken' },
+                    { image: 'IMG_5428', name: 'Сансевиерия цилиндрическая (Sansevieria cylindrica) 90см', note: 'Сансевиерия трехполосая (Sansevieria trifasciata), Хавортия полосатая (Haworthiopsis fasciata)', status: 'active' },
+                    { image: 'IMG_5429', name: 'Кротон (Codiaeum variegatum)', title: 'Кротон (кодиеум)', status: 'active' },
+                    { image: 'IMG_5430', name: 'Замиокулькас (Zamioculcas)', alt: 'Замиокулькас', note: 'Высота — около 95 см.', status: 'active' },
+                    { image: 'IMG_5431', name: 'Аихризон (Aichryson)', status: 'active' },
+                    { image: 'IMG_5432', name: 'Фикус микрокарпа «Гинсенг» (Ficus microcarpa \'Ginseng\')', note: 'Высота 25 см', status: 'active' },
+                    { image: 'IMG_5433', name: 'Орхидея Фаленопсис (Phalaenopsis)', title: 'Орхидея фаленопсис', alt: 'Фикус каучуконосный', note: 'Высота 25 см. Есть свежие цветоносы', status: 'active' },
+                    { image: 'IMG_5416', name: 'Фикус Эластика Абиджан (Ficus Elastica Abidjan)', alt: 'Фикус Эластика Абиджан, рядом кот', note: 'Высота 95 см', status: 'active' }
+                ]
+            };
+
+            const statusLabels = {
+                reserved: 'Забронировано',
+                taken: 'Забрали'
+            };
+
+            function createElement(tagName, className, text) {
+                const element = document.createElement(tagName);
+                if (className) element.className = className;
+                if (text !== undefined) element.textContent = text;
+                return element;
+            }
+
+            const intro = document.querySelector('[data-content="intro"]');
+            intro.append(createElement('p', 'eyebrow', pageContent.location));
+            const heading = createElement('h1');
+            heading.append(document.createTextNode(pageContent.headingStart));
+            heading.append(createElement('em', '', pageContent.headingEmphasis));
+            intro.append(heading, createElement('p', '', pageContent.introduction));
+
+            const contactsNav = document.querySelector('[data-content="contacts"]');
+            contactsNav.setAttribute('aria-label', pageContent.contactsLabel);
+            const contactsList = contactsNav.querySelector('.contact');
+            pageContent.contacts.forEach(function (contact) {
+                const link = createElement('a', '', contact.label);
+                link.href = contact.href;
+                const item = createElement('li');
+                item.append(link);
+                contactsList.append(item);
+            });
+
+            const plantList = document.querySelector('[data-content="plants"]');
+            pageContent.plants.forEach(function (plant, index) {
+                const status = plant.status;
+                const item = createElement('li', 'is-' + status);
+                item.dataset.status = status;
+                const figure = createElement('figure');
+                if (statusLabels[status]) figure.append(createElement('p', 'status', statusLabels[status]));
+
+                const button = createElement('button', 'zoom');
+                button.type = 'button';
+                button.title = plant.title || plant.name;
+                button.setAttribute('aria-label', 'Увеличить фото ' + (index + 1));
+
+                const image = createElement('img', 'photo');
+                image.src = 'images/webp/small/' + plant.image + '.webp';
+                image.dataset.full = 'images/webp/big/' + plant.image + '.webp';
+                image.width = 600;
+                image.height = 800;
+                image.alt = plant.alt || 'Комнатное растение в горшке';
+                image.decoding = 'async';
+                if (index > 0) image.loading = 'lazy';
+                button.append(image);
+
+                const caption = createElement('figcaption', '', plant.name);
+                if (plant.note) caption.append(createElement('p', 'note', plant.note));
+                figure.append(button, caption);
+                item.append(figure);
+                plantList.append(item);
+            });
+
             const viewer = document.getElementById('viewer');
             const viewerImg = viewer.querySelector('img');
-            document.querySelectorAll('.zoom').forEach(function (btn) {
-                btn.addEventListener('click', function () {
-                    const img = btn.querySelector('img');
-                    viewerImg.src = img.dataset.full || img.currentSrc || img.src;
-                    viewerImg.alt = img.alt;
-                    viewer.showModal();
-                    history.pushState({ viewer: true }, '');
-                });
+            plantList.addEventListener('click', function (event) {
+                const button = event.target.closest('.zoom');
+                if (!button) return;
+
+                const img = button.querySelector('img');
+                viewerImg.src = img.dataset.full || img.currentSrc || img.src;
+                viewerImg.alt = img.alt;
+                viewer.showModal();
+                history.pushState({ viewer: true }, '');
             });
             viewer.addEventListener('click', function () { viewer.close(); });
 
